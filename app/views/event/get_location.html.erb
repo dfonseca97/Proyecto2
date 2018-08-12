@@ -1,0 +1,49 @@
+
+<body>
+
+<script>
+
+//Checks if the browser supports geolocation.
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(storePosition);
+    } else { 
+        document.write("Geolocation is not supported by this browser.");
+    }
+}
+
+/*
+Used to print the current coordinates.
+function showPosition(position) {
+   
+   document.write("Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude);
+
+}
+
+*/
+
+//Sends the coordinates as an http request for them to be stored on the database.
+function storePosition(position){
+        
+        var original_url = window.location.href;
+        var store_url = "store?latitude=" + position.coords.latitude +
+		"&longitude=" + position.coords.longitude;
+        var url = original_url.slice(0,original_url.indexOf("get_location")) + store_url;
+	window.open(url, "_self");
+  
+}
+
+
+//Repeat the process every second.
+//window.setInterval(getLocation, 1000);
+getLocation();
+</script>
+
+ Storing locations...
+
+<br>
+<%= link_to "map", event_get_date_path, :method => :get %> <br>
+<%= link_to "back", root_path, :method => :get %>
+
+</body>

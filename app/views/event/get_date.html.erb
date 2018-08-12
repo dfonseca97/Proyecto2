@@ -1,0 +1,13 @@
+<body>
+	
+	<%= form_tag("/event/map", method: "get") do %>
+	<%= label_tag(:starting, "Starting Date") %>
+	<%= datetime_local_field(:starting, :date_1) %>
+	<%= label_tag(:ending, "Ending Date") %>
+	<%= datetime_local_field(:ending, :date_2) %>
+	<%= submit_tag("Next") %>
+	<%end%>
+
+	<%= link_to "back", root_path, :method => :get %>
+	
+</body>
