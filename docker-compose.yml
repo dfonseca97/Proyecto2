@@ -21,8 +21,6 @@ services:
     image: nginx
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - /etc/ssl/private/nginx.key:/etc/ssl/private/nginx.key
-      - /etc/ssl/certs/nginx.crt:/etc/ssl/certs/nginx.crt
     ports:
       - "80:80"
       - "443:443"
