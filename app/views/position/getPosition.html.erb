@@ -1,0 +1,62 @@
+
+<h1>Position</h1>
+
+<script>
+  function getLocation() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(storePosition, showError);
+	    } else {
+	        document.write("Geolocation is not supported by this browser.");
+	    }
+	}
+
+	function showPosition(position) {
+	    document.write("<br> Latitude: " + position.coords.latitude +
+	    " Longitude: " + position.coords.longitude);
+	}
+
+	function sendPosition(position) {
+		window.open("save?lat="+position.coords.latitude +"&lon="+position.coords.longitude,"_self");
+	}
+
+	function storePosition(position){
+        
+        var original_url = window.location.href;
+        var store_url = "save?lat=" + position.coords.latitude +
+	"&lon=" + position.coords.longitude;
+	console.log(store_url);
+        var url = original_url.slice(0,original_url.indexOf("getPosition")) + store_url;
+	window.open(url, "_self");
+  
+  }
+
+  function showError(error) {
+    var x = document.getElementById("demo");
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+  }
+  }
+	setInterval(getLocation,1000);
+</script>	
+
+<p id="demo"></p>
+
+<% while !@positions.empty? %>
+    <% coordinate = @positions.pop %>
+    <ul>
+    	<li> <b>UserId:</b> <%= current_user.email %></li>
+    	<li> <b>Latitude:</b> <%= coordinate.latitud %></li>
+    	<li> <b>Longitude:</b> <%= coordinate.longitud %></li>
+    </ul>
+<% end %>

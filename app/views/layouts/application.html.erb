@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Proyecto1</title>
+    <title>ProyectoWeb</title>
+    <%= csrf_meta_tags %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= csrf_meta_tags %>
- </head>
+  </head>
 
   <body>
+
+    <header class="mb-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="<%= index_position_path %>">
+            <img src="<%= asset_path 'trackerM.png'%>"  width="40" height="40" class="d-inline-block align-top" alt="">Tracker M
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidoNavbar" aria-controls="contenidoNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <% if signed_in? then %>
+            <div class="collapse navbar-collapse" id="contenidoNavbar">
+              <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="<%= get_position_path %>"> Track me! </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="<%= map_path %>"> History </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#"> Close to me</a>
+                </li>
+              </ul>
+
+
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                   <%= current_user.email %> &nbsp
+                  </a>  
+                  <div class="dropdown-menu">
+                    <%= link_to "Mi Perfil", '#', class:"dropdown-item", :remote=>true %>
+                    <%= link_to "Salir", logout_path, class:"dropdown-item"%>
+                  </div>
+                </li>
+              </ul>
+
+              <p>&nbsp&nbsp&nbsp&nbsp</p>
+            </div>
+          <% end %>
+        </div>
+      </nav>  
+    </header>  
+
     <%= yield %>
+
   </body>
 </html>

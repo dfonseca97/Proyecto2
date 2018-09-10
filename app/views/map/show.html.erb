@@ -1,0 +1,27 @@
+<h1>Map</h1>
+<br>
+<% if @results.count > 0 %>
+<div id="map"></div>
+
+
+<script>
+  var map;
+  $(document).ready(function(){
+  map = L.map('map').setView([<%= @lat %>, <%= @lon %>], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  
+  <% @results.each_with_index do |location, index| %>
+  L.marker([<%= location.latitud %>, <%= location.longitud %>])
+  .addTo(map).bindPopup('Marker #<%= index + 1 %>');
+  <% end %>
+  });
+</script>
+
+<% else %>
+
+<h3>You haven't registered any position yet.</h3>
+
+<% end %>

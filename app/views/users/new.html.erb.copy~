@@ -1,0 +1,37 @@
+<% if signed_in? %>
+
+<p>You are already signed in.</p>
+
+<% else %>
+  <div class="col col-sm-1 col-md-4"></div>
+  <div class="col col-sm-10 col-md-6">
+    <div class="box box-solid">
+        <div class="box-header">
+          <div class="col col-md-6">
+            <h3 class="productCast">
+            Tracker
+          </h3>
+          </div>
+          <div class="col col-md-6">
+             <span class="pull-right"><%= image_tag("Icon.png", :alt => "User Image", :class => "logo_l") %></span>
+          </div>
+        </div>
+        <div class="box-body">
+          
+          <div class="col col-md-1"></div>
+          <div class="col col-md-10">
+            <h2>Sign in</h2>
+            <h5>Please click the button to log in with Auth0</h5>
+            <br><br>
+	    <a id="qsLoginBtn" class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+            <br><br><br><br>
+          </div>
+          <div class="col col-md-1"></div>
+        </div>
+        <div class="box-footer"></div>
+      </div>
+    </div>
+  <div class="col-sm-1 col col-md-2"></div>
+
+
+<% end %>

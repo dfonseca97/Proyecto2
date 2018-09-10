@@ -1,0 +1,31 @@
+<% if signed_in? %>
+
+<p>You are already signed in.</p>
+
+<% else %>
+
+  <body id=loginForm class="bg-dark">
+  <div class="container">
+    <div class="col-xs-6 .col-md-4">
+    </div>
+
+    <div class="col-xs-6 .col-md-4">
+      <div class="login-form ">
+        <div class="main-div">
+          <div class="panel">
+            <img src="<%= asset_path 'trackerM.png'%>"  width="40" height="40" class="d-inline-block align-top" alt=""><h3>Tracker M</h3>
+            <p> login </p>
+          </div>
+	  <h5>Please click the button to log in with Auth0</h5>
+          <br><br>
+	  <a id="qsLoginBtn" class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-6 .col-md-4">
+    </div>
+  </div>
+</body>
+
+<% end %>
