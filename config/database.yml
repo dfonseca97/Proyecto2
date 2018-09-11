@@ -22,7 +22,7 @@ test:
   database: proyecto1_test
   user: pguser
   password: test123
-  host: localhost
+  host: 10.131.137.153 
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
@@ -33,7 +33,7 @@ production:
   database: proyecto1_pro
   user: pguser
   password: test123
-  host: localhost
+  host: 10.131.137.153  
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000 
