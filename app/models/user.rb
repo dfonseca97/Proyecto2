@@ -5,7 +5,7 @@ class User < ApplicationRecord
       def from_omniauth(auth_hash)
         print(auth_hash)
         user = find_or_create_by(uid: auth_hash['uid'])
-        user.email = auth_hash['name']
+        user.email = auth_hash['info']['name']
         user.save!
         user
       end
