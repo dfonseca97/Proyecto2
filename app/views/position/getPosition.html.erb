@@ -24,10 +24,11 @@
         var original_url = window.location.href;
         var store_url = "save?lat=" + position.coords.latitude +
 	"&lon=" + position.coords.longitude;
-	console.log(store_url);
+  console.log(store_url);
+        if (original_url.search("getPosition") >= 0) {
         var url = original_url.slice(0,original_url.indexOf("getPosition")) + store_url;
 	window.open(url, "_self");
-  
+  }
   }
 
   function showError(error) {
@@ -47,7 +48,11 @@
             break;
   }
   }
-	setInterval(getLocation,1000);
+  var interval = setInterval(getLocation,1000);
+
+  function test() {
+  clearInterval(interval);
+  }
 </script>	
 
 <p id="demo"></p>

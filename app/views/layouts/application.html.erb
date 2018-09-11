@@ -31,10 +31,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="<%= map_path %>"> History </a>
                 </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> Close to me</a>
-                </li>
               </ul>
 
 
@@ -45,8 +41,7 @@
                    <%= current_user.email %> &nbsp
                   </a>  
                   <div class="dropdown-menu">
-                    <%= link_to "Mi Perfil", '#', class:"dropdown-item", :remote=>true %>
-                    <%= link_to "Salir", logout_path, class:"dropdown-item"%>
+                     <%= link_to "Salir", logout_path, class:"dropdown-item" %>
                   </div>
                 </li>
               </ul>
