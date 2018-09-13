@@ -1,3 +1,5 @@
+require 'tzinfo'
+
 class MapController < ApplicationController
   include Secured
 
@@ -5,16 +7,17 @@ class MapController < ApplicationController
   end
   
   def show
-    @starting_date = params[:starting][:date_1]
-    @ending_date = params[:ending][:date_2]
+    tz = TZInfo::Timezone.get(current_user.timezone)
+    @starting_date = tz.local_to_utc(params[:starting][:date_1].to_time)
+    @ending_date = tz.local_to_utc(params[:ending][:date_2].to_time)
     @user_events = Position.where(user: current_user.id)
     @results = Array.new
 
     #Fills the result array with the coordinates to show.
     @user_events.each do |event|
 
-      if((event.created_at.to_time >= @starting_date.to_time) && 
-        (event.created_at.to_time <= @ending_date.to_time)) then
+      if((event.created_at.to_time >= @starting_date) && 
+        (event.created_at.to_time <= @ending_date)) then
 
         @results << event
 

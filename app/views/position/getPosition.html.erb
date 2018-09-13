@@ -1,5 +1,5 @@
 
-<h1>Position</h1>
+<h1>Getting Position</h1>
 
 <script>
   function getLocation() {
@@ -57,10 +57,12 @@
 
 <p id="demo"></p>
 
+<h3>Showing last 10 positions recorded:</h3>
+
 <% while !@positions.empty? %>
     <% coordinate = @positions.pop %>
     <ul>
-    	<li> <b>UserId:</b> <%= current_user.email %></li>
+    	<li> <b>Email:</b> <%= current_user.email %></li>
     	<li> <b>Latitude:</b> <%= coordinate.latitud %></li>
     	<li> <b>Longitude:</b> <%= coordinate.longitud %></li>
     </ul>

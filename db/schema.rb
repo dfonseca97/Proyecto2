@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180909203044) do
+ActiveRecord::Schema.define(version: 20180913033704) do
 
   create_table "positions", force: :cascade do |t|
     t.integer "user", null: false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180909203044) do
     t.string "email"
     t.string "token"
     t.string "uid"
+    t.string "timezone"
     t.index ["email"], name: "index_users_on_email"
     t.index ["uid"], name: "index_users_on_uid"
   end
