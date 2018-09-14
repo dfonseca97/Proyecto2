@@ -3,18 +3,18 @@
 ## 1. Miembros del equipo
 
 * Diego Antonio Fonseca
-* Luis Miguel Marín
-* Sebastián Patiño
+* Luis Miguel MarÃ­n
+* SebastiÃ¡n PatiÃ±o
 
-## 2. Diseño de arquitectura de la Aplicación y Sistema
+## 2. DiseÃ±o de arquitectura de la AplicaciÃ³n y Sistema
 
 ### a. Vista de desarrollo
 
 ![Diagrama de componentes](Componentes.png)
 
-#### i. Definición de Tecnología de Desarrollo
+#### i. DefiniciÃ³n de TecnologÃ­a de Desarrollo
 
-La tecnología utilizada para desarrollar la aplicación es Ruby on Rails, un framework que permite crear aplicaciones web con modelo vista controlador. Para la vista de la aplicación se utilizó HTML 5, JavaScript y Bootstrap.
+La tecnologÃ­a utilizada para desarrollar la aplicaciÃ³n es Ruby on Rails, un framework que permite crear aplicaciones web con modelo vista controlador. Para la vista de la aplicaciÃ³n se utilizÃ³ HTML 5, JavaScript y Bootstrap.
 
 #### ii. URLs de repositorio (github)
 
@@ -24,95 +24,95 @@ https://github.com/dfonseca97/Proyecto2
 
 ![Diagrama de despliegue](Despliegue.png)
 
-#### i. Definición de Tecnología v3 – Infraestructura TI
+#### i. DefiniciÃ³n de TecnologÃ­a v3 â€“ Infraestructura TI
 
-La aplicación fue desplegada en AWS y el DCA utilizando una máquina virtual con un sistema operativo Centos7. Se utilizaron contenedores Docker para subir el servidor web NGINX y la aplicación en rails. Para asegurar disponibilidad y rendimiento se distribuyó la aplicación mediante Docker Swarm en los diferentes nodos que se poseen y además se configuró el servidor web para funcionar como un balanceador de cargas. La base de datos utilizada fue PostgreSQL y se encuentra ubicada en el nodo manager para poder sincronizar los datos de la aplicación. 
+La aplicaciÃ³n fue desplegada en AWS y el DCA utilizando una mÃ¡quina virtual con un sistema operativo Centos7. Se utilizaron contenedores Docker para subir el servidor web NGINX y la aplicaciÃ³n en rails. Para asegurar disponibilidad y rendimiento se distribuyÃ³ la aplicaciÃ³n mediante Docker Swarm en los diferentes nodos que se poseen y ademÃ¡s se configurÃ³ el servidor web para funcionar como un balanceador de cargas. La base de datos utilizada fue PostgreSQL y se encuentra ubicada en el nodo manager para poder sincronizar los datos de la aplicaciÃ³n. 
 
-#### ii. URL de ejecución privada
+#### ii. URL de ejecuciÃ³n privada
 http://10.131.137.153
 
-#### iii. URL de ejecución pública y segura: telematica2.tk
+#### iii. URL de ejecuciÃ³n pÃºblica y segura: telematica2.tk
 
-## 3. Implementación y Pruebas por Atributo de Calidad
+## 3. ImplementaciÃ³n y Pruebas por Atributo de Calidad
 
-### a. Implementación
+### a. ImplementaciÃ³n
 
-Para la disponibilidad se decidió desplegar la aplicación en diferentes nodos con contenedores conectados por Docker Swarm con el objetivo de lograr que la aplicación no falle si el nodo en la que está se cae. Para el rendimiento se implementó un balanceo de cargas mediante una configuración de NGINX con un método de Round Robin para lograr distribuir las peticiones a los diferentes nodos, utilizando sticky session para mantener las sesiones que ya han sido iniciadas. Para la seguridad se implementó la autentificación con Auth0 lo que permite iniciar sesión en un servidor externo a la aplicación y evitar falsificación de peticiones en la aplicación. También se creó un certificado SSL para el dominio de la aplicación. 
+Para la disponibilidad se decidiÃ³ desplegar la aplicaciÃ³n en diferentes nodos con contenedores conectados por Docker Swarm con el objetivo de lograr que la aplicaciÃ³n no falle si el nodo en la que estÃ¡ se cae. Para el rendimiento se implementÃ³ un balanceo de cargas mediante una configuraciÃ³n de NGINX con un mÃ©todo de Round Robin para lograr distribuir las peticiones a los diferentes nodos, utilizando sticky session para mantener las sesiones que ya han sido iniciadas. Para la seguridad se implementÃ³ la autentificaciÃ³n con Auth0 lo que permite iniciar sesiÃ³n en un servidor externo a la aplicaciÃ³n y evitar falsificaciÃ³n de peticiones en la aplicaciÃ³n. TambiÃ©n se creÃ³ un certificado SSL para el dominio de la aplicaciÃ³n. 
 
 #### i. Herramientas utilizadas
 
-Las herramientas utilizadas para la implementación fueron el framework de Ruby on Rails, Auth0 para la autentificación, OpenStreet Maps para la visualización de las ubicaciones.
+Las herramientas utilizadas para la implementaciÃ³n fueron el framework de Ruby on Rails, Auth0 para la autentificaciÃ³n, OpenStreet Maps para la visualizaciÃ³n de las ubicaciones.
 
-#### ii. Cambios en la implementación de la aplicación
+#### ii. Cambios en la implementaciÃ³n de la aplicaciÃ³n
 
-Para la realización de este proyecto se modificó la autentificación, antes se utilizaba devise. La visualización se cambió de Google Maps a OpenStreet Maps
+Para la realizaciÃ³n de este proyecto se modificÃ³ la autentificaciÃ³n, antes se utilizaba devise. La visualizaciÃ³n se cambiÃ³ de Google Maps a OpenStreet Maps
 
 ### b. Esquemas de pruebas para comprobar el Atributo de Calidad.
 
-* **Disponibilidad:** Las pruebas de disponibilidad serán realizadas enfocándose en la independencia de los nodos entre sí. Se planea desconectar un nodo y verificar que los demás sigan funcionando. 
+* **Disponibilidad:** Las pruebas de disponibilidad serÃ¡n realizadas enfocÃ¡ndose en la independencia de los nodos entre sÃ­. Se planea desconectar un nodo y verificar que los demÃ¡s sigan funcionando. 
 
-* **Rendimiento:** Las pruebas de rendimiento serán realizadas con la herramienta JMeter la cual permite hacer gran cantidad de peticiones a la aplicación. Utilizando esta herramienta se puede verificar el tiempo de respuesta de la aplicación. Se espera lograr obtener un tiempo de respuesta promedio de 1 segundo en la generación de las ubicaciones. 
+* **Rendimiento:** Las pruebas de rendimiento serÃ¡n realizadas con la herramienta JMeter la cual permite hacer gran cantidad de peticiones a la aplicaciÃ³n. Utilizando esta herramienta se puede verificar el tiempo de respuesta de la aplicaciÃ³n. Se espera lograr obtener un tiempo de respuesta promedio de 1 segundo en la generaciÃ³n de las ubicaciones. 
 
-* **Seguridad:** Las pruebas de seguridad serán realizadas enfocándose en la fortaleza de las políticas de contraseña, protección contra inyección de SQL en los campos de la aplicación y ataques de falsificación de peticiones en sitios cruzados. Para comprobar la seguridad de la aplicación se realizarán una serie de scripts simulando este tipo de ataques y se espera que la aplicación sea resistente contra ellos. 
+* **Seguridad:** Las pruebas de seguridad serÃ¡n realizadas enfocÃ¡ndose en la fortaleza de las polÃ­ticas de contraseÃ±a, protecciÃ³n contra inyecciÃ³n de SQL en los campos de la aplicaciÃ³n y ataques de falsificaciÃ³n de peticiones en sitios cruzados. Para comprobar la seguridad de la aplicaciÃ³n se realizarÃ¡n una serie de scripts simulando este tipo de ataques y se espera que la aplicaciÃ³n sea resistente contra ellos. AdemÃ¡s, se utiliza un analizador de cÃ³digo estÃ¡tico para evitar brechas de seguridad en el cÃ³digo por malas prÃ¡cticas de programaciÃ³n. 
 
-## 4. Marco-referencia-v3: Versión final de las bases conceptuales, patrones, mejores prácticas, etc de los atributos de calidad seleccionados.
+## 4. Marco-referencia-v3: VersiÃ³n final de las bases conceptuales, patrones, mejores prÃ¡cticas, etc de los atributos de calidad seleccionados.
 
-### Disponibilidad (Confiabilidad y Recuperación)
-En general, el principal objetivo del QA de disponibilidad se resume a Permitir soportar las fallas del sistema de tal manera que el servicio entregado por dicho sistema siga siendo compatible con su especificación.
-Esto implica entender que una falla solo representa una amenaza cuando este fenómeno  afecta tanto a los servicios del sistema, que las especificaciones del sistema ya no se cumplen.
-La literatura propone estrategias y tácticas que garantizan la disponibilidad desde los siguientes tres frentes:
+### Disponibilidad (Confiabilidad y RecuperaciÃ³n)
+En general, el principal objetivo del QA de disponibilidad se resume a Permitir soportar las fallas del sistema de tal manera que el servicio entregado por dicho sistema siga siendo compatible con su especificaciÃ³n.
+Esto implica entender que una falla solo representa una amenaza cuando este fenÃ³meno  afecta tanto a los servicios del sistema, que las especificaciones del sistema ya no se cumplen.
+La literatura propone estrategias y tÃ¡cticas que garantizan la disponibilidad desde los siguientes tres frentes:
 
- * **Detección de fallas**
-Para la detección de fallas existen varias tácticas, entre ellas se encuentran las estrategias de _Ping_ o _Echo_ (para verificar que un sistema responda), monitores tipo _heatbeat_ o _watchdog_ (para verificar que un sistema sigue ”con vida” de no ser así, lo reinicia), _Sistemas de excepciones_, y sistemas de _Redundancia Modular Triple_.
+ * **DetecciÃ³n de fallas**
+Para la detecciÃ³n de fallas existen varias tÃ¡cticas, entre ellas se encuentran las estrategias de _Ping_ o _Echo_ (para verificar que un sistema responda), monitores tipo _heatbeat_ o _watchdog_ (para verificar que un sistema sigue â€con vidaâ€ de no ser asÃ­, lo reinicia), _Sistemas de excepciones_, y sistemas de _Redundancia Modular Triple_.
 
-* **Recuperación de fallas**
-En relación a la recuepración de fallas existen 2 grandes procesos:
-  * **Reparation and repair**: En esta fase la idea es que el sistema reconozca la falla y la repare, pero que mientras eso ocurre desde la perspectiva del usuario el sistema debe seguir funcionando de manera correcta, para esto tecnologías como _redundancia pasiva_ y _redundancia activa_, _sparing_, _gestión de excepciones_ e incluso _actualizaciones de software_; permiten administrar este proceso.
+* **RecuperaciÃ³n de fallas**
+En relaciÃ³n a la recuepraciÃ³n de fallas existen 2 grandes procesos:
+  * **Reparation and repair**: En esta fase la idea es que el sistema reconozca la falla y la repare, pero que mientras eso ocurre desde la perspectiva del usuario el sistema debe seguir funcionando de manera correcta, para esto tecnologÃ­as como _redundancia pasiva_ y _redundancia activa_, _sparing_, _gestiÃ³n de excepciones_ e incluso _actualizaciones de software_; permiten administrar este proceso.
   
-  * **Reintroduction**: En esta frase el objetivo es dejar las funcionalidades del sistema corriendo en estado normal, cumpliendo con las especificaciones iniciales, esta reintroducción se habilita despues de la fase de reparación y las tecnologías que se usan para esto son _Sombra_, _resincronización de estado_, _Rollback_, _Reinicio escalado_, entre otras.
+  * **Reintroduction**: En esta frase el objetivo es dejar las funcionalidades del sistema corriendo en estado normal, cumpliendo con las especificaciones iniciales, esta reintroducciÃ³n se habilita despues de la fase de reparaciÃ³n y las tecnologÃ­as que se usan para esto son _Sombra_, _resincronizaciÃ³n de estado_, _Rollback_, _Reinicio escalado_, entre otras.
 
-* **Prevención de fallas**
-Una de las mejores prácticas a la hora de garantizar disponibilidad y enfrentarse a las fallas, es preveer su aparición y/o realizar actividades preventivas que minimicen el impacto de las fallas, a este nivel las tecnologías que podemos usar son _Retiro del servicio_, _Gestión de Transacciones atómicas_, tener _Monitores de Procesos_ o _Prevención de Excepciones_.
+* **PrevenciÃ³n de fallas**
+Una de las mejores prÃ¡cticas a la hora de garantizar disponibilidad y enfrentarse a las fallas, es preveer su apariciÃ³n y/o realizar actividades preventivas que minimicen el impacto de las fallas, a este nivel las tecnologÃ­as que podemos usar son _Retiro del servicio_, _GestiÃ³n de Transacciones atÃ³micas_, tener _Monitores de Procesos_ o _PrevenciÃ³n de Excepciones_.
 
- >[Ver más](https://www.semanticscholar.org/paper/Realizing-and-Refining-Architectural-Tactics-%3A-Scott/5840ae598740c6dbfb69dc3ce30f43efa23ef9b9)
- >[_Tácticas de arquitetura: Disponibilidad_](https://profesores.virtual.uniandes.edu.co/~isis2503/dokuwiki/lib/exe/fetch.php?media=principal:modulo10-disponibilidad.pdf)
+ >[Ver mÃ¡s](https://www.semanticscholar.org/paper/Realizing-and-Refining-Architectural-Tactics-%3A-Scott/5840ae598740c6dbfb69dc3ce30f43efa23ef9b9)
+ >[_TÃ¡cticas de arquitetura: Disponibilidad_](https://profesores.virtual.uniandes.edu.co/~isis2503/dokuwiki/lib/exe/fetch.php?media=principal:modulo10-disponibilidad.pdf)
 
 
 ### Rendimiento
-El rendimiento puede ser definido como la efectividad total de un sistema. Puede ser medido de diferentes maneras pero las más comunes incluyen el throughput, definido como cuántas unidades de información puede procesar el sistema en un determinado tiempo, y el tiempo de respuesta. El rendimiento depende de muchas variables desde cómo está codificado el sistema hasta la infraestructura que lo soporta. 
-Por lo general es un atributo muy importante y debe ser considerado desde las fases iniciales de diseño de una solución. 
+El rendimiento puede ser definido como la efectividad total de un sistema. Puede ser medido de diferentes maneras pero las mÃ¡s comunes incluyen el throughput, definido como cuÃ¡ntas unidades de informaciÃ³n puede procesar el sistema en un determinado tiempo, y el tiempo de respuesta. El rendimiento depende de muchas variables desde cÃ³mo estÃ¡ codificado el sistema hasta la infraestructura que lo soporta. 
+Por lo general es un atributo muy importante y debe ser considerado desde las fases iniciales de diseÃ±o de una soluciÃ³n. 
 Existen varias maneras de lograr un buen rendimiento:
 
-* Entrega y carga optimizada de los assets estáticos
+* Entrega y carga optimizada de los assets estÃ¡ticos
 * Seleccionar un framework adecuado.
 * Monitoreo del sistema
-* Considerar el rendimiento desde tempranas etapas del diseño de la solución.
-* Peticiones on-demand y asíncronas
+* Considerar el rendimiento desde tempranas etapas del diseÃ±o de la soluciÃ³n.
+* Peticiones on-demand y asÃ­ncronas
 * Desarrollo y pruebas iterativas
 
-Implementar pruebas de rendimiento también es un aspecto muy importante en un sistema, se deben considerar pruebas de la carga del sistema y de la infraestructura. 
+Implementar pruebas de rendimiento tambiÃ©n es un aspecto muy importante en un sistema, se deben considerar pruebas de la carga del sistema y de la infraestructura. 
 
 ### Seguridad
 
-La seguridad es responsable de la capacidad que tiene un sistema para reducir la posibilidad de acciones maliciosas o accidentales al igual que la posibilidad de pérdida o robo de información, a la ves que se provee un servicio fiable a los usuarios legítimos. Hay varias medidas que pueden ser usadas para proteger un sistema, como: autenticación, cifrado, auditoría, entre otros.
+La seguridad es responsable de la capacidad que tiene un sistema para reducir la posibilidad de acciones maliciosas o accidentales al igual que la posibilidad de pÃ©rdida o robo de informaciÃ³n, a la ves que se provee un servicio fiable a los usuarios legÃ­timos. Hay varias medidas que pueden ser usadas para proteger un sistema, como: autenticaciÃ³n, cifrado, auditorÃ­a, entre otros.
 
 Una buena estrategia de seguridad involucra los siguientes escenarios:
-* Análisis de seguridad
-* Identificación de amenazas
-* Diseño de seguridad
-* Implementación de seguridad
+* AnÃ¡lisis de seguridad
+* IdentificaciÃ³n de amenazas
+* DiseÃ±o de seguridad
+* ImplementaciÃ³n de seguridad
 * Pruebas de seguridad
 * Monitoreo de seguridad
 
 Tomando en cuenta estos escenarios, se deben de tener encuenta los siguientes principios de seguridad al momento de pasar por cada una de esas fases:
 
 * Defensa en profundidad
-* Asegurar el eslabón más débil
-* El principio de mínimo privilegio
-* Compartimentación
+* Asegurar el eslabÃ³n mÃ¡s dÃ©bil
+* El principio de mÃ­nimo privilegio
+* CompartimentaciÃ³n
 * Un solo punto de acceso
-* Administración de seguridad
+* AdministraciÃ³n de seguridad
 * Soporte para extensibilidad
-* Validación de la información de usuario
-* Minimización de la superficie vulnerable
+* ValidaciÃ³n de la informaciÃ³n de usuario
+* MinimizaciÃ³n de la superficie vulnerable
 * Plan para fallos
